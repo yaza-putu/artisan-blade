@@ -14,8 +14,7 @@ class ArtisanBladeCommand extends Command
 
     public function handle(): int
     {
-        $input = str_replace("blade", "", $this->argument("name"));
-        $input = str_replace(".php", "", $input);
+        $input = str_replace(".blade.php", "", $this->argument("name"));
 
         try {
             $this->createBlade($input);
