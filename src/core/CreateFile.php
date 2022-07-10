@@ -61,8 +61,8 @@ class CreateFile
     private function createStub()
     {
         $stub = $this->getStub();
-        if(count($this->stubProperties) > 0) {
-         $stub = $this->populateStub($stub);
+        if (count($this->stubProperties) > 0) {
+            $stub = $this->populateStub($stub);
         }
         $this->writeFile($stub);
     }
