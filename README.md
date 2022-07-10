@@ -63,6 +63,7 @@ return [
 1. php artisan make:blade user
 ![artisan blade](https://res.cloudinary.com/dk0053zbe/image/upload/v1657470752/artisan-blade/Screen_Shot_2022-07-11_at_00.18.07_uyzryc.png)
 2. php artisan make:user --stub=modal
+![stub modal](https://res.cloudinary.com/dk0053zbe/image/upload/v1657470752/artisan-blade/Screen_Shot_2022-07-11_at_00.18.37_aaee4x.png)
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
