@@ -111,14 +111,14 @@ class ArtisanBladeCommand extends Command
             $config_template = config("artisan-blade.path");
             $config_default = config("artisan-blade.default");
 
-            // check option
-            if ($this->option("stub")) {
-                $stubName = str_replace(".stub", "", $this->option("stub"));
-                $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
-            }
-
             if (! empty($config_template) && ! empty($config_default)) {
-                $stubPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
+                // check option
+                if ($this->option("stub")) {
+                    $stubName = str_replace(".stub", "", $this->option("stub"));
+                    $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
+                } else {
+                    $stubPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
+                }
             }
 
             if (! file_exists($stubPath)) {
