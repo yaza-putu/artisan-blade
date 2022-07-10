@@ -10,7 +10,7 @@ class ArtisanBladeCommand extends Command
 {
     public $signature = '
                         make:blade {name : The name of the view}
-                        {--stub : Select a stub file to create file blade}?
+                        {--stub=}?
                         ';
 
     public $description = 'Create a new view file blade.php';
@@ -112,7 +112,7 @@ class ArtisanBladeCommand extends Command
             $config_default = config("artisan-blade.default");
 
             // check option
-            if ($this->hasOption("stub")) {
+            if ($this->option("stub")) {
                 $stubName = str_replace(".stub", "", $this->option("stub"));
                 $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
             }
