@@ -70,6 +70,7 @@ class ArtisanBladeCommand extends Command
             for ($i = 0; $i < count($explode) - 1; $i++) {
                 $path .= '/'.$explode[$i];
             }
+
             return $path.'/'.$filename.".blade.php";
         } else {
             return $filename.'.blade.php';
@@ -81,7 +82,8 @@ class ArtisanBladeCommand extends Command
      * @param string $input
      * @return string
      */
-    private function getPath(string $input) {
+    private function getPath(string $input)
+    {
         $explode = explode('/', $input);
         if (count($explode) > 1) {
             $path = '';
