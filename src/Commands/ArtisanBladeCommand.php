@@ -113,8 +113,8 @@ class ArtisanBladeCommand extends Command
             $config_default = config("artisan-blade.default");
 
             // check option
-            if($this->option("stub")) {
-                $stubName = str_replace(".stub", "", $this->argument("stub"));
+            if($this->hasOption("stub")) {
+                $stubName = str_replace(".stub", "", $this->option("stub"));
                 $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
             }
 
