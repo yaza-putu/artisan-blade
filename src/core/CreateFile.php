@@ -99,6 +99,6 @@ class CreateFile
      */
     private function writeFile($stub)
     {
-        $this->files->put($this->path, $stub);
+        $this->files->put($this->path, $stub.".blade.php");
     }
 }
