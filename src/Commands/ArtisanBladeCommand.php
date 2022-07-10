@@ -17,14 +17,13 @@ class ArtisanBladeCommand extends Command
     {
         $input = str_replace("blade", "", $this->argument("name"));
         $input = str_replace(".php", "", $input);
-        $input = Str::studly($input);
 
         $arr = explode("/", $input);
         $name = end($arr);
 
         try {
             $this->createBlade($input);
-            $this->line('File '.$name.'.blade.php was created');
+            $this->info($name.'.blade.php created successfully.');
 
             return self::SUCCESS;
         } catch (\Exception $exception) {
