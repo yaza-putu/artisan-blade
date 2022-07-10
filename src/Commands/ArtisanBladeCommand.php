@@ -67,12 +67,7 @@ class ArtisanBladeCommand extends Command
             for ($i = 0; $i < count($explode) - 1; $i++) {
                 $path .= '/'.$explode[$i];
             }
-<<<<<<< HEAD
             return $path;
-=======
-
-            return $path.'/'.$filename.'.blade.php';
->>>>>>> 3937702589ff3b694c1a6ac3b347e9aa794e5269
         } else {
             return "";
         }
