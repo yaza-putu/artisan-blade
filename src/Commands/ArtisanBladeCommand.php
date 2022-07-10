@@ -3,9 +3,9 @@
 namespace ArtisanBlade\Commands;
 
 use ArtisanBlade\core\CreateFile;
+use File;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use File;
 
 class ArtisanBladeCommand extends Command
 {
@@ -25,26 +25,26 @@ class ArtisanBladeCommand extends Command
         try {
             $this->createBlade($input);
             $this->line('file '.$name.'blade.php created');
+
             return self::SUCCESS;
         } catch (\Exception $exception) {
             return self::FAILURE;
         }
     }
 
-
     /**
      * create file blade
      * @param string $input
      * @throws \Exception
      */
-    public function createBlade(string $input) : void
+    public function createBlade(string $input): void
     {
         $stubProperties = [];
         $path = app()->basePath()."/resources/views/".$this->getPath($input);
         $stubPath = $this->genStubPath();
 
         // create folder
-        if(!file_exists($path)) {
+        if (! file_exists($path)) {
             File::makeDirectory($path, 0775, true, true);
         }
 
@@ -60,41 +60,42 @@ class ArtisanBladeCommand extends Command
      * @param string $input
      * @return string
      */
-    private function getPath(string $input) : string
+    private function getPath(string $input): string
     {
         $explode = explode('/', $input);
         $filename = end($explode);
         if (count($explode) > 1) {
             $path = '';
-            for($i=0; $i < count($explode)-1; $i++) {
+            for ($i = 0; $i < count($explode) - 1; $i++) {
                 $path .= '/'.$explode[$i];
             }
+
             return $path.'/'.$filename.'.blade.php';
         } else {
             return $filename.'.blade.php';
         }
     }
 
-    private function genStubPath() : string
+    private function genStubPath(): string
     {
         $viewPath = app()->basePath()."/resources/views";
         $stubPath = __dir__ . '/stubs/blank.stub';
 
 
         // check config
-       if(file_exists(config_path().'/artisan-blade.php')) {
-           $config_template = config("artisan-blade.path");
-           $config_default = config("artisan-blade.default");
+        if (file_exists(config_path().'/artisan-blade.php')) {
+            $config_template = config("artisan-blade.path");
+            $config_default = config("artisan-blade.default");
 
-           if(!empty($config_template) && !empty($config_default)) {
-               $configPath = $viewPath.'/'.$config_template.'/'.$config_default.'.stub';
-               if(file_exists($configPath)) {
-                   $stubPath = $configPath;
-               } else {
-                   throw new \Exception("File ".$configPath." not found");
-               }
-           }
-       }
+            if (! empty($config_template) && ! empty($config_default)) {
+                $configPath = $viewPath.'/'.$config_template.'/'.$config_default.'.stub';
+                if (file_exists($configPath)) {
+                    $stubPath = $configPath;
+                } else {
+                    throw new \Exception("File ".$configPath." not found");
+                }
+            }
+        }
 
         return $stubPath;
     }

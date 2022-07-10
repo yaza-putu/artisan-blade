@@ -2,9 +2,9 @@
 
 namespace ArtisanBlade;
 
+use ArtisanBlade\Commands\ArtisanBladeCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ArtisanBlade\Commands\ArtisanBladeCommand;
 
 class ArtisanBladeServiceProvider extends PackageServiceProvider
 {

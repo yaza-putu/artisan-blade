@@ -1,6 +1,7 @@
 <?php
 
 namespace ArtisanBlade\core;
+
 use Exception;
 use Illuminate\Filesystem\Filesystem;
 
@@ -76,6 +77,7 @@ class CreateFile
         foreach ($this->stubProperties as $replacer => $replaceBy) {
             $stub = str_replace($replacer, $replaceBy, $stub);
         }
+
         return $stub;
     }
 
