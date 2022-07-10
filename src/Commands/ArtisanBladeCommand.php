@@ -24,7 +24,7 @@ class ArtisanBladeCommand extends Command
 
         try {
             $this->createBlade($input);
-            $this->comment('file '.$name.'blade.php created');
+            $this->line('File '.$name.'.blade.php was created');
 
             return self::SUCCESS;
         } catch (\Exception $exception) {
