@@ -1,13 +1,13 @@
 <?php
-// config for ArtisanBlade/ArtisanBlade
+
 return [
     /*
     * Default location template
     */
-    "path" => "template",
+    "path" => "",
 
     /*
     * select default stub file
     */
-    "default" => "parent"
+    "default" => ""
 ];

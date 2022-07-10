@@ -15,6 +15,7 @@ class ArtisanBladeCommand extends Command
     public function handle(): int
     {
         $input = str_replace(".blade.php", "", $this->argument("name"));
+        $input = str_replace(".php", "", $input);
 
         try {
             $this->createBlade($input);
@@ -98,7 +99,7 @@ class ArtisanBladeCommand extends Command
      */
     private function genStubPath(): string
     {
-        $viewPath = app()->basePath()."/resources/views";
+        $resourcePath = app()->basePath()."/resources";
         $stubPath = __dir__ . '/stubs/blank.stub';
 
 
@@ -108,7 +109,7 @@ class ArtisanBladeCommand extends Command
             $config_default = config("artisan-blade.default");
 
             if (! empty($config_template) && ! empty($config_default)) {
-                $configPath = $viewPath.'/'.$config_template.'/'.$config_default.'.stub';
+                $configPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
                 if (file_exists($configPath)) {
                     $stubPath = $configPath;
                 } else {
