@@ -108,12 +108,11 @@ class ArtisanBladeCommand extends Command
 
         // check config
         if (file_exists(config_path().'/artisan-blade.php')) {
-
             $config_template = config("artisan-blade.path");
             $config_default = config("artisan-blade.default");
 
             // check option
-            if($this->option("stub")) {
+            if ($this->option("stub")) {
                 $stubName = str_replace(".stub", "", $this->argument("stub"));
                 $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
             }
@@ -122,7 +121,7 @@ class ArtisanBladeCommand extends Command
                 $stubPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
             }
 
-            if (!file_exists($stubPath)) {
+            if (! file_exists($stubPath)) {
                 throw new \Exception("File ".$stubPath." not found");
             }
         }
