@@ -61,10 +61,8 @@ class CreateFile
     private function createStub()
     {
         $stub = $this->getStub();
-        if (count($this->stubProperties) > 0) {
-            $stub = $this->populateStub($stub);
-        }
-        $this->writeFile($stub);
+        $populatedStub = $this->populateStub($stub);
+        $this->writeFile($populatedStub);
     }
 
     /**
@@ -101,6 +99,6 @@ class CreateFile
      */
     private function writeFile($stub)
     {
-        $this->files->put($this->path, $stub.".blade.php");
+        $this->files->put($this->path, $stub);
     }
 }

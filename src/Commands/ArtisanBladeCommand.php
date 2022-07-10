@@ -39,6 +39,7 @@ class ArtisanBladeCommand extends Command
     public function createBlade(string $input): void
     {
         $stubProperties = [];
+        $filePath = app()->basePath()."/resources/views/".$this->getFilePath($input);
         $path = app()->basePath()."/resources/views/".$this->getPath($input);
         $stubPath = $this->genStubPath();
 
@@ -49,18 +50,37 @@ class ArtisanBladeCommand extends Command
 
         new CreateFile(
             $stubProperties,
-            $path,
+            $filePath,
             $stubPath
         );
     }
 
     /**
-     * get path
+     * get stub file path
      * @param string $input
      * @return string
      */
-    private function getPath(string $input): string
+    private function getFilePath(string $input): string
     {
+        $explode = explode('/', $input);
+        $filename = end($explode);
+        if (count($explode) > 1) {
+            $path = '';
+            for ($i = 0; $i < count($explode) - 1; $i++) {
+                $path .= '/'.$explode[$i];
+            }
+            return $path.'/'.$filename.".blade.php";
+        } else {
+            return $filename.'.blade.php';
+        }
+    }
+
+    /**
+     * get path stub
+     * @param string $input
+     * @return string
+     */
+    private function getPath(string $input) {
         $explode = explode('/', $input);
         if (count($explode) > 1) {
             $path = '';
@@ -69,10 +89,15 @@ class ArtisanBladeCommand extends Command
             }
             return $path;
         } else {
-            return "";
+            return '';
         }
     }
 
+    /**
+     * get stub path
+     * @return string
+     * @throws \Exception
+     */
     private function genStubPath(): string
     {
         $viewPath = app()->basePath()."/resources/views";
