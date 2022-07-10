@@ -25,6 +25,7 @@ class ArtisanBladeCommand extends Command
         try {
             $this->createBlade($input);
             $this->comment('file '.$name.'blade.php created');
+
             return self::SUCCESS;
         } catch (\Exception $exception) {
             return self::FAILURE;
@@ -67,6 +68,7 @@ class ArtisanBladeCommand extends Command
             for ($i = 0; $i < count($explode) - 1; $i++) {
                 $path .= '/'.$explode[$i];
             }
+
             return $path;
         } else {
             return "";
