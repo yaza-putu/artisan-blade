@@ -8,7 +8,10 @@ use Illuminate\Console\Command;
 
 class ArtisanBladeCommand extends Command
 {
-    public $signature = 'make:blade {name : The name of the view}';
+    public $signature = '
+                        make:blade {name : The name of the view}
+                        {--stub : Select a stub file to create file blade}?
+                        ';
 
     public $description = 'Create a new view file blade.php';
 
@@ -105,16 +108,22 @@ class ArtisanBladeCommand extends Command
 
         // check config
         if (file_exists(config_path().'/artisan-blade.php')) {
+
             $config_template = config("artisan-blade.path");
             $config_default = config("artisan-blade.default");
 
+            // check option
+            if($this->option("stub")) {
+                $stubName = str_replace(".stub", "", $this->argument("stub"));
+                $stubPath = $resourcePath.'/'.$config_template.'/'.$stubName.'.stub';
+            }
+
             if (! empty($config_template) && ! empty($config_default)) {
-                $configPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
-                if (file_exists($configPath)) {
-                    $stubPath = $configPath;
-                } else {
-                    throw new \Exception("File ".$configPath." not found");
-                }
+                $stubPath = $resourcePath.'/'.$config_template.'/'.$config_default.'.stub';
+            }
+
+            if (!file_exists($stubPath)) {
+                throw new \Exception("File ".$stubPath." not found");
             }
         }
 
