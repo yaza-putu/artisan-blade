@@ -18,12 +18,9 @@ class ArtisanBladeCommand extends Command
         $input = str_replace("blade", "", $this->argument("name"));
         $input = str_replace(".php", "", $input);
 
-        $arr = explode("/", $input);
-        $name = end($arr);
-
         try {
             $this->createBlade($input);
-            $this->info($name.'.blade.php created successfully.');
+            $this->info($input.'.blade.php created successfully.');
 
             return self::SUCCESS;
         } catch (\Exception $exception) {
