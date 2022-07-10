@@ -1,5 +1,6 @@
-
 # Make blade file laravel with artisan command
+![artisan command](https://res.cloudinary.com/dk0053zbe/image/upload/v1657471606/artisan-blade/articleocw-57c5d562e9aaa_sxc3jj.png)
+<hr>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yaza/artisan-blade.svg?style=flat-square)](https://packagist.org/packages/yaza/artisan-blade)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/yaza/artisan-blade/run-tests?label=tests)](https://github.com/yaza-putu/artisan-blade/actions?query=workflow%3Arun-tests+branch%3Amain)
