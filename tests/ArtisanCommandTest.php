@@ -1,6 +1,5 @@
 <?php
 
-
 namespace ArtisanBlade\Tests;
 
 use ArtisanBlade\Commands\ArtisanBladeCommand;

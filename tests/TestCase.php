@@ -2,9 +2,9 @@
 
 namespace ArtisanBlade\Tests;
 
+use ArtisanBlade\ArtisanBladeServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ArtisanBlade\ArtisanBladeServiceProvider;
 
 class TestCase extends Orchestra
 {
