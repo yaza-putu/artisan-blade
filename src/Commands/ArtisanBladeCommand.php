@@ -24,7 +24,7 @@ class ArtisanBladeCommand extends Command
 
         try {
             $this->createBlade($input);
-            $this->line('file '.$name.'blade.php created');
+            $this->comment('file '.$name.'blade.php created');
             return self::SUCCESS;
         } catch (\Exception $exception) {
             return self::FAILURE;
@@ -63,15 +63,14 @@ class ArtisanBladeCommand extends Command
     private function getPath(string $input) : string
     {
         $explode = explode('/', $input);
-        $filename = end($explode);
         if (count($explode) > 1) {
             $path = '';
             for($i=0; $i < count($explode)-1; $i++) {
                 $path .= '/'.$explode[$i];
             }
-            return $path.'/'.$filename.'.blade.php';
+            return $path;
         } else {
-            return $filename.'.blade.php';
+            return "";
         }
     }
 
