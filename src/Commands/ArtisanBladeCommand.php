@@ -5,7 +5,6 @@ namespace ArtisanBlade\Commands;
 use ArtisanBlade\core\CreateFile;
 use File;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class ArtisanBladeCommand extends Command
 {
