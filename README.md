@@ -13,7 +13,7 @@ This package can make blade file laravel with artisan command, and setup a templ
 You can install the package via composer:
 
 ```bash
-composer require yaza/artisan-blade
+composer require yaza/artisan-blade --dev
 ```
 You can publish the config file with (Optional):
 
