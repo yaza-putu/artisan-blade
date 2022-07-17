@@ -7,7 +7,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/yaza/artisan-blade/Check%20&%20fix%20styling?label=code%20style)](https://github.com/yaza-putu/artisan-blade/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/yaza/artisan-blade.svg?style=flat-square)](https://packagist.org/packages/yaza/artisan-blade)
 
-## requirement
+## Requirement
 - Laravel 9.*
 - PHP 8.1
 
