@@ -6,6 +6,11 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/yaza/artisan-blade/run-tests?label=tests)](https://github.com/yaza-putu/artisan-blade/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/yaza/artisan-blade/Check%20&%20fix%20styling?label=code%20style)](https://github.com/yaza-putu/artisan-blade/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/yaza/artisan-blade.svg?style=flat-square)](https://packagist.org/packages/yaza/artisan-blade)
+
+## requirement
+- Laravel 9.*
+- PHP 8.1
+
 ## Description
 This package can make blade file laravel with artisan command, and setup a template html with stub file 
 ## Installation
